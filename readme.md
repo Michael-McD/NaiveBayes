@@ -307,6 +307,6 @@ The Naive Bayes algorithm is one of the simplest probabilistic classifiers - it'
 requiring a detailed analysis of the data space. Often with suprising results, for example adding more data to the classification 
 feature set made the predictions worse or that key terms we intuitively thought might do that trick were amongst the worst.
 
-This is F# has proved to be an excellent choice allowing us to extract potential classification feature from a variety of patterns within the data.
+This is where F# has proved to be an excellent choice allowing us to extract potential classification feature from a variety of patterns within the data.
 
 A final thought being that given the classification feature detections required a lot of analysis of patterns within the data set an idea might be to combine such a classifier with a hidden feature detection neural network.
