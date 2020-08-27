@@ -227,12 +227,12 @@ let allTokenClassifier = train trainingSet smartTokenizer all
 
 Lots of Spam detected but not very good on non Spam i.e. this is incorrectly classifying a lot of Ham messages as Spam which is not what we want.
 
-Trying the top 10 percent of tokens (or words) in the training set:
+Trying the top 15 percent of tokens (or words) in the training set:
 ```f#
 let smsStrings = trainingSet |> Array.map snd                                   // get snd elements of training tuple (SMSType * smsTxt)  array i.e. the text
 let allTokenCount = vocabulary smartTokenizer smsStrings |> Set.count           // vocabulary returns a union of all the word tokens which is then counted
-let top10Percent = smsStrings |> top ((allTokenCount * 15) / 100) casedTokenizer// top orders the smsStrings and takes the top n (15% in this case)
-let top10PercentClassifier = train trainingSet smartTokenizer top10Percent
+let top15Percent = smsStrings |> top ((allTokenCount * 15) / 100) casedTokenizer// top orders the smsStrings and takes the top n (15% in this case)
+let top15PercentClassifier = train trainingSet smartTokenizer top15Percent
 ```
 * Properly classified Ham: 0.87854  
 * Properly classified Spam: 0.98026  
@@ -295,7 +295,7 @@ let smartTokens =
 
 let rarestTopTokensClassifier = train trainingSet smartTokenizer smartTokens
 ```
-Gives us a slightly better classification of Spam, with an acceptable detection of Ham messages.
+Gives us an even better classification of Spam, with an acceptable detection of Ham messages.
 * Properly classified Ham: 0.96580
 * Properly classified Spam: 0.95395
 
